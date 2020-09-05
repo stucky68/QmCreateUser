@@ -124,7 +124,7 @@ func (service *QmService) GetShareLink() (string, error) {
 }
 
 func (service *QmService) SetAutograph(autograph string) error {
-	return service.userProfileSubmit("userprofilesubmit=autograph%3D%" + autograph)
+	return service.userProfileSubmit("userprofilesubmit=autograph%3D" + autograph)
 }
 
 func (service *QmService) SetBirthday(birthday string) error {

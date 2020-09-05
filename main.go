@@ -44,6 +44,12 @@ func main() {
 	if nickNameData == "" {
 		panic("昵称表不能为空")
 	}
+
+	wordData := Utils.ReadFileData("./words.txt")
+	if wordData == "" {
+		panic("关键词不能为空")
+	}
+
 	nickNames := strings.Split(nickNameData, "\r\n")
 
 	fileData := Utils.ReadFileData("./data.txt")
@@ -69,8 +75,17 @@ func main() {
 				if len(info.UserInfo.AvatarMedium.UrlList) > 0 {
 					nickName := Utils.FilterNickName(info.UserInfo.Nickname)
 					nickName = strings.ReplaceAll(nickName, "小姐", "小姐姐")
+					nickName = strings.ReplaceAll(nickName, " ", "")
 
-					nickNameRand :=rand.Intn(len(nickNames) - 1)
+
+					signature := Utils.FilterNickName(info.UserInfo.Signature)
+					//去除关键词
+					words := strings.Split(wordData, "\r\n")
+					for _, value := range words {
+						signature = strings.ReplaceAll(signature, value, "")
+					}
+
+					nickNameRand := rand.Intn(len(nickNames) - 1)
 
 					begin := rand.Intn(100) % 2
 					if begin == 0 {
@@ -78,7 +93,7 @@ func main() {
 					} else {
 						nickName = nickName + nickNames[nickNameRand]
 					}
-					shareLink := qmService.Process(nickName, info.UserInfo.Signature,info.UserInfo.AvatarMedium.UrlList[0])
+					shareLink := qmService.Process(nickName, signature, info.UserInfo.AvatarMedium.UrlList[0])
 					Utils.Log("全民分享链接:" + shareLink)
 				} else {
 					Utils.Log("获取抖音头像失败 SecID:" + item[1])

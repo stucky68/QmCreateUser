@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc23ce0f-e36f-46a6-9b7c-1bde358526ce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DouyinService/service_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QmService/service.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QmService/service_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Utils/Utils.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
